@@ -1,0 +1,22 @@
+{
+    "name": "spa-router-example",
+    "version": "1.0.0",
+    "description": "SPA router example based on pure javascript, using Web Components, ES module, fetch API, history API",
+    "main": "index.js",
+    "type": "module",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "start": "node server.js",
+        "test-node": "jasmine",
+        "test": "jasmine-browser-runner runSpecs --browser=headlessChrome"
+    },
+    "author": "Tomoaki Takahashi",
+    "license": "MIT",
+    "devDependencies": {
+        "jasmine": "^5.2.0",
+        "jasmine-browser-runner": "^2.5.0",
+        "jasmine-core": "^5.2.0"
+    }
+}
