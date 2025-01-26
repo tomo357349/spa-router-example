@@ -1,6 +1,7 @@
 import { userService } from '../service/user.js';
 import { HTMLRouter } from '../components/index.js';
 import { fill } from '../utils/routeUtil.js';
+import './userdetails-subject.js';
 
 export default class UserDetails extends HTMLElement {
     static observedAttributes() {

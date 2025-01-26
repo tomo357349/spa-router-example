@@ -15,8 +15,8 @@ export default class AboutUsPage extends HTMLElement {
         </ul>
         <html-router id="about-router">
             <router-route path="${parentPath}/" component="page-void" default></router-route>
-            <router-route path="${parentPath}/sub1" component="page-about-sub1"></router-route>
-            <router-route path="${parentPath}/sub2" component="page-about-sub2"></router-route>
+            <router-route path="${parentPath}/sub1" component="page-about-sub1" lazyload="/js/pages/about-sub1.js"></router-route>
+            <router-route path="${parentPath}/sub2" component="page-about-sub2" lazyload="/js/pages/about-sub2.js"></router-route>
             <router-outlet></router-outlet>
         </html-router>
       </div>

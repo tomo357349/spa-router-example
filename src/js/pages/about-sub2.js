@@ -1,3 +1,5 @@
+import './about-sub2-sec1.js';
+
 export default class AboutSub2 extends HTMLElement {
 	connectedCallback() {
 		const list = 'abc'.split('');
@@ -10,7 +12,7 @@ export default class AboutSub2 extends HTMLElement {
           <html-router id="about-sub2-router">
             <router-route path="./" title="(void)" component="page-about-sub2-sec1"></router-route>
             <router-route path="./sec1" title="Sub1 Section1" component="page-about-sub2-sec1"></router-route>
-            <router-route path="./sec2/:num" title="Sub2 Section2" component="page-about-sub2-sec2"></router-route>
+            <router-route path="./sec2/:num" title="Sub2 Section2" component="page-about-sub2-sec2" lazyload="/js/pages/about-sub2-sec2.js"></router-route>
             <router-outlet></router-outlet>
           </html-router>
 		</div>

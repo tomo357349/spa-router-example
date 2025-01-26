@@ -182,7 +182,7 @@ function Router() {
         const matchedRoute = match(_routes, uri);
 
         if (!matchedRoute) {
-            throw new Error("Not found: " + url);
+            throw new Error("Not found: " + uri);
         }
 
         history.pushState({ id: ++_nextid }, null, uri);

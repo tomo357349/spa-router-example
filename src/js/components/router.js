@@ -33,6 +33,7 @@ export class HTMLRouter extends HTMLElement {
     }
 
     get routes() {
+        console.log('add', this._routes);
         if (this._routes) return this._routes;
 
         const parentPath = HTMLRouter.parentRoute(this.parentNode).path;
@@ -44,6 +45,7 @@ export class HTMLRouter extends HTMLElement {
                 title: node.getAttribute('title'),
                 component: node.getAttribute('component'),
                 lazyload: node.getAttribute('lazyload'),
+                $$node: node,
                 default: node.getAttribute('default') !== null
             }));
         return this._routes;
@@ -105,11 +107,13 @@ export class HTMLRouter extends HTMLElement {
 
         if (!route) return;
 
+        console.log(route);
         const {
             component,
             title,
             params = {},
-            lazyload = null
+            lazyload = null,
+            $$node = null,
         } = route;
 
         if (!component) return;
@@ -128,6 +132,8 @@ export class HTMLRouter extends HTMLElement {
         // Update view.
         if (lazyload) {
             import(lazyload).then(updateView);
+        } else if ($$node.$lazyload) {
+            $$node.$lazyload().then(updateView);
         } else {
             updateView();
         }
@@ -135,3 +141,7 @@ export class HTMLRouter extends HTMLElement {
 }
 
 customElements.define("html-router", HTMLRouter);
+
+export class HTMLRoute extends HTMLElement {}
+
+customElements.define("router-route", HTMLRoute);
